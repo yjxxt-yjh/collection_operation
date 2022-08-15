@@ -16,7 +16,7 @@ public class UserServiceTest {
 
     @Test
     public void addUser(){
-        userService.addUser(new User(3,"admin","123456","admin","",""));
+        userService.addUser(new User(3,"yjh","123456","mengya","",""));
     }
 
 
@@ -28,13 +28,19 @@ public class UserServiceTest {
 
     @Test
     public void updateUser(){
-
+        System.out.println("更新之前.....");
+        userService.listUser();
+        System.out.println("更新之后.....");
+        userService.updateUser(new User(2,"test","123456","test","happy",""));
+        userService.listUser();
     }
 
 
     @Test
     public void delUser(){
-
+        userService.delUser(2);
+        System.out.println("删除后的记录...");
+        userService.listUser();
     }
 
     @Test
