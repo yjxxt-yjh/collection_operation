@@ -37,4 +37,9 @@ public class UserServiceTest {
 
     }
 
+    @Test
+    public void login(){
+        userService.login("admin","123456");
+    }
+
 }

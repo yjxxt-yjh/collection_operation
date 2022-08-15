@@ -111,4 +111,27 @@ public class UserService {
 
     }
 
+    public void login(String userName,String userPwd){
+        if (StringUtils.isBlank(userName)){
+            throw new RuntimeException("用户名不能为空！");
+        }
+        if (StringUtils.isBlank(userPwd)){
+            throw new RuntimeException("用户密码不能为空！");
+        }
+        Integer index = null;
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUserName().equals(userName)){
+                index = i;
+            }
+        }
+        if (index == null){
+            throw  new RuntimeException("用户名不存在！");
+        }
+        if (users.get(index).getUserPwd().equals(userPwd)){
+            System.out.println("登陆成功！");
+        }else {
+            throw new RuntimeException("用户密码错误！");
+        }
+    }
+
 }
